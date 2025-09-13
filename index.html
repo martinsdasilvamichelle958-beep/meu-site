@@ -3,32 +3,294 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MARTINS • Impacto Digital</title>
-  <meta name="description" content="Site futurista com impacto digital imediato — MARTINS.">
-  <link rel="stylesheet" href="style.css" />
+  <title>MARTINS • Impacto Digital — Sites, Apps & Growth</title>
+  <meta name="description" content="Impacto digital imediato: sites e apps futuristas, neurodesign e copy que converte. Fale agora no Telegram.">
+  <meta name="theme-color" content="#8b5cf6">
+  <meta property="og:title" content="MARTINS • Impacto Digital" />
+  <meta property="og:description" content="Futuro + conversão. Sites & apps com estética neon, psicologia das cores e alto impacto." />
+  <meta property="og:type" content="website" />
+
+  <!-- ===== CSS EMBUTIDO (não precisa arquivo externo) ===== -->
+  <style>
+    :root{
+      --bg:#0b0f19; --panel:#111827; --ink:#e5e7eb;
+      --violet:#8b5cf6; --cyan:#22d3ee; --pink:#f472b6; --lime:#a3e635;
+      --line:rgba(255,255,255,.08); --veil:rgba(255,255,255,.06);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif}
+    a{color:var(--cyan);text-decoration:none}
+    a:hover{opacity:.9}
+    .container{max-width:1160px;margin:0 auto;padding:0 16px}
+
+    /* ===== NAVBAR ===== */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(11,15,25,.7);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px}
+    .logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--violet),var(--cyan));box-shadow:0 0 24px rgba(139,92,246,.45)}
+    .menu{display:flex;gap:20px;font-size:14px;color:#cbd5e1}
+    .cta{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,var(--violet),var(--cyan),var(--lime));color:#0b0f19;font-weight:700;box-shadow:0 8px 28px -8px rgba(34,211,238,.55);}
+
+    /* ===== HERO ===== */
+    .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+    .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.28;filter:contrast(110%) saturate(140%) hue-rotate(6deg);pointer-events:none}
+    .hero-bg{
+      position:absolute;inset:0;pointer-events:none;
+      background:
+        radial-gradient(1000px 600px at 10% -10%, rgba(139,92,246,.22), transparent),
+        radial-gradient(800px 400px at 90% -10%, rgba(34,211,238,.22), transparent),
+        radial-gradient(700px 400px at 50% 120%, rgba(244,114,182,.18), transparent);
+    }
+    .hero-grid{position:absolute;inset:0;background:radial-gradient(circle at 1px 1px, rgba(255,255,255,.06) 1px, transparent 1px);background-size:22px 22px;opacity:.35}
+    .hero-inner{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;min-height:78vh;padding:64px 0}
+    @media (max-width:900px){.hero-inner{grid-template-columns:1fr;min-height:72vh}}
+    .chip{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:var(--veil);border:1px solid var(--line);color:#cbd5e1;font-weight:700;font-size:12px}
+    .title{margin:14px 0 0;font-weight:900;line-height:1.1;font-size:clamp(34px,6vw,58px)}
+    .gtext{background:linear-gradient(90deg,var(--violet),var(--cyan),var(--lime),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:300% 100%;animation:gt 12s ease infinite}
+    @keyframes gt{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+    .lead{color:#cbd5e1;max-width:640px}
+    .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;border:1px solid var(--line);font-weight:700}
+    .btn-primary{background:linear-gradient(90deg,var(--violet),var(--cyan),var(--lime));color:#0b0f19;box-shadow:0 10px 30px -10px rgba(34,211,238,.55)}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .stat{padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--veil);text-align:center}
+    .stat b{display:block;font-size:20px;color:#fff}
+
+    .mock{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--veil);box-shadow:0 14px 40px -14px rgba(139,92,246,.45);min-height:380px}
+    .mock::after{content:"UI futurista • glow sutil • microinterações";position:absolute;left:0;right:0;bottom:0;padding:12px;background:linear-gradient(0deg,rgba(0,0,0,.7),transparent);font-size:13px}
+
+    /* ===== SECTION GENERIC ===== */
+    section{padding:72px 0;border-bottom:1px solid var(--line)}
+    h2.sec{font-size:clamp(26px,4.6vw,40px);margin:0 0 8px;font-weight:900}
+    p.sub{color:#cbd5e1;margin:0 0 24px}
+
+    /* ===== CARDS ===== */
+    .grid{display:grid;gap:16px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-4{grid-template-columns:repeat(4,1fr)}
+    @media (max-width:900px){.grid.cols-3,.grid.cols-4{grid-template-columns:1fr}}
+    .card{padding:18px;border-radius:16px;border:1px solid var(--line);background:var(--veil);backdrop-filter:blur(6px);transition:transform .2s ease, box-shadow .2s ease}
+    .card:hover{transform:translateY(-4px);box-shadow:0 18px 48px -18px rgba(34,211,238,.35)}
+    .card .k{display:flex;align-items:center;gap:10px;font-weight:800}
+    .card ul{margin:12px 0 0;padding-left:18px;color:#cbd5e1}
+
+    /* ===== PRICING ===== */
+    .price{font-size:30px;font-weight:900;margin-top:6px}
+    .badge{font-size:12px;color:#cbd5e1}
+
+    /* ===== CONTACT ===== */
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    @media (max-width:900px){.contact{grid-template-columns:1fr}}
+    .form{padding:18px;border-radius:16px;border:1px solid var(--line);background:var(--veil)}
+    .input{width:100%;padding:12px 14px;margin-top:6px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:#fff}
+    .submit{width:100%;margin-top:12px;padding:12px 16px;border:0;border-radius:12px;background:linear-gradient(90deg,var(--violet),var(--cyan),var(--lime));color:#0b0f19;font-weight:900}
+
+    /* ===== FOOTER ===== */
+    footer{padding:28px 0;border-top:1px solid var(--line);text-align:center;color:#94a3b8}
+
+    /* ===== FLOAT TELEGRAM ===== */
+    .float-tg{position:fixed;right:16px;bottom:16px;z-index:60;padding:12px 16px;border-radius:16px;background:linear-gradient(90deg,var(--violet),var(--cyan),var(--pink));color:#0b0f19;font-weight:900;box-shadow:0 12px 36px -12px rgba(244,114,182,.55)}
+  </style>
 </head>
 <body>
-  <header>
-    <h1>MARTINS • Impacto Digital</h1>
-    <p>Sites & Apps futuristas que convertem atenção em negócios</p>
-    <p><a href="tg://user?id=1496349336">Telegram</a> · <a href="mailto:michelle.martinsdasilva@michellemkt.online">E-mail</a></p>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <span class="logo"></span>
+        <span>MARTINS</span>
+        <span style="color:#cbd5e1">• Impacto Digital</span>
+      </div>
+      <div class="menu">
+        <a href="#servicos">Serviços</a>
+        <a href="#cases">Cases</a>
+        <a href="#processo">Processo</a>
+        <a href="#planos">Planos</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <a class="cta" href="tg://user?id=1496349336">Falar no Telegram</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <!-- Vídeo (opcional). Coloque hero.mp4 na mesma pasta. Se não existir, o fundo neon segura o visual. -->
+    <video class="hero-video" autoplay loop muted playsinline src="hero.mp4"></video>
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+
+    <div class="container hero-inner">
+      <div>
+        <span class="chip">Neurodesign • Persuasão • Alta Conversão</span>
+        <h1 class="title">
+          <span class="gtext">Impacto digital imediato</span>
+          <br/>Sites & apps futuristas que transformam atenção em receita.
+        </h1>
+        <p class="lead">Cores neuroestimulantes, microinterações e copy estratégica para fechar negócio na primeira visita — presente + futuro, sem clichê.</p>
+        <div class="btns">
+          <a class="btn btn-primary" href="tg://user?id=1496349336">Começar pelo Telegram</a>
+          <a class="btn" href="mailto:michelle.martinsdasilva@michellemkt.online">Enviar e-mail</a>
+          <a class="btn" href="#servicos">Ver como faço</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>+310%</b> ROAS em 90 dias</div>
+          <div class="stat"><b>R$ 2,4 mi</b> receita atribuída</div>
+          <div class="stat"><b>72</b> funis lançados</div>
+        </div>
+      </div>
+
+      <div class="mock"></div>
+    </div>
   </header>
 
-  <section class="hero">
-    <video autoplay loop muted playsinline>
-      <source src="hero.mp4" type="video/mp4" />
-      Seu navegador não suporta vídeo.
-    </video>
-    <div class="overlay">
-      <h2>Impacto digital imediato</h2>
-      <p>Neon futurista + psicologia das cores + conversão comprovada.</p>
+  <!-- ===== SERVIÇOS ===== -->
+  <section id="servicos">
+    <div class="container">
+      <h2 class="sec">Serviços para gerar <span class="gtext">efeito imediato</span></h2>
+      <p class="sub">Design neuroestético + engenharia enxuta + performance. Nada raso.</p>
+      <div class="grid cols-4">
+        <article class="card">
+          <div class="k">Sites & Apps futuristas</div>
+          <ul>
+            <li>Web ultra-rápida (SEO/CRO), PWA e integrações.</li>
+            <li>Componentes conversores e microinterações.</li>
+            <li>Pagamento, CRM e analytics plug-and-play.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="k">Funis & Copy hipnótica</div>
+          <ul>
+            <li>Arquitetura AIDA + ofertas de alto valor.</li>
+            <li>Âncoras, provas e retargeting inteligente.</li>
+            <li>Testes A/B e heatmaps.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="k">Tráfego & Performance</div>
+          <ul>
+            <li>Meta, Google, TikTok com estrutura por funil.</li>
+            <li>Creatives que param o feed.</li>
+            <li>Relatórios com próximos passos.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="k">Social & Demanda</div>
+          <ul>
+            <li>Pilares, tom de voz e calendário.</li>
+            <li>Reels/shorts com distribuição 10x.</li>
+            <li>SEO prático e previsível.</li>
+          </ul>
+        </article>
+      </div>
     </div>
   </section>
 
+  <!-- ===== CASES ===== -->
+  <section id="cases">
+    <div class="container">
+      <h2 class="sec">Alguns resultados</h2>
+      <p class="sub">Menos opinião, mais números. Execução consistente e iterativa.</p>
+      <div class="grid cols-3">
+        <article class="card">
+          <div class="k">E-commerce de moda</div>
+          <p>Reestruturação + novas ofertas → ROAS de 2,1 para 5,3 em 60 dias.</p>
+        </article>
+        <article class="card">
+          <div class="k">Serviços locais (B2C)</div>
+          <p>Leadgen + CRM simples → 187 leads/mês; CAC −42%.</p>
+        </article>
+        <article class="card">
+          <div class="k">Infoproduto</div>
+          <p>Funil 3 passos + copy direta → 6 dígitos no lançamento; LTV 3x.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESSO ===== -->
+  <section id="processo">
+    <div class="container">
+      <h2 class="sec">Processo claro • Resultado rápido</h2>
+      <p class="sub">Você sabe o que acontece e quando — sem enrolação.</p>
+      <div class="grid cols-4">
+        <div class="card"><div class="k">1) Diagnóstico</div><p>Raio-X do funil, proposta e canais. Hipóteses de crescimento.</p></div>
+        <div class="card"><div class="k">2) Plano</div><p>Roadmap de 90 dias com metas, KPIs, ofertas e calendário.</p></div>
+        <div class="card"><div class="k">3) Execução</div><p>Campanhas, páginas, conteúdos e automações.</p></div>
+        <div class="card"><div class="k">4) Escala</div><p>Otimização contínua, criativos e alavancas de ROI.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PLANOS ===== -->
+  <section id="planos">
+    <div class="container">
+      <h2 class="sec">Planos com retorno previsível</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <div class="badge">Começar</div>
+          <div class="k">Sprint de Diagnóstico</div>
+          <div class="price">R$ 890</div>
+          <p>7 dias para achar gargalos e oportunidades.</p>
+          <a class="btn" href="#contato">Quero começar</a>
+        </div>
+        <div class="card" style="border-color:rgba(139,92,246,.6);box-shadow:0 10px 36px -12px rgba(139,92,246,.55)">
+          <div class="badge">Mais popular</div>
+          <div class="k">Crescimento Mensal</div>
+          <div class="price" style="color:var(--violet)">R$ 2.490</div>
+          <p>Execução contínua com metas e relatórios semanais.</p>
+          <a class="btn btn-primary" href="#contato">Quero crescer</a>
+        </div>
+        <div class="card">
+          <div class="badge">Pro</div>
+          <div class="k">Mentoria 1:1</div>
+          <div class="price" style="color:var(--pink)">R$ 3.990</div>
+          <p>Para founders e experts acelerarem decisões.</p>
+          <a class="btn" href="#contato">Falar comigo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTATO ===== -->
+  <section id="contato">
+    <div class="container contact">
+      <div>
+        <h2 class="sec">Pronta(o) para o impacto?</h2>
+        <p class="sub">Conte em 2 minutos onde quer chegar. Eu retorno com um caminho claro.</p>
+        <div class="card">
+          <p>• <b>Telegram:</b> <a href="tg://user?id=1496349336">falar agora</a></p>
+          <p>• <b>E-mail:</b> <a href="mailto:michelle.martinsdasilva@michellemkt.online">michelle.martinsdasilva@michellemkt.online</a></p>
+        </div>
+      </div>
+      <form class="form" action="https://formspree.io/f/SEU_ID" method="POST">
+        <input type="hidden" name="_subject" value="Lead — MARTINS • Impacto Digital">
+        <label>Nome</label>
+        <input class="input" name="name" type="text" required placeholder="Seu nome" />
+        <label style="margin-top:10px">E-mail</label>
+        <input class="input" name="email" type="email" required placeholder="voce@exemplo.com" />
+        <label style="margin-top:10px">Mensagem</label>
+        <textarea class="input" name="message" rows="4" placeholder="Conte um pouco do seu projeto"></textarea>
+        <button class="submit" type="submit">Enviar</button>
+        <p style="font-size:12px;color:#94a3b8;margin-top:8px">Dica: crie seu endpoint no Formspree e troque <b>SEU_ID</b> acima.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>© <span id="year"></span> MARTINS • Impacto Digital</p>
+    <div class="container">
+      © <span id="year"></span> MARTINS • Impacto Digital. Todos os direitos reservados.
+    </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <!-- FLOAT CTA -->
+  <a class="float-tg" href="tg://user?id=1496349336">Telegram</a>
+
+  <!-- utilitário -->
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
+
+    
